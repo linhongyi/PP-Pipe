@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
-import { MatToolbarModule } from "@angular/material/toolbar";
+import { Component, Input } from "@angular/core";
+import { MatSidenav } from '@angular/material/sidenav';
+import { LeftMenuItem } from './LeftMenuItem';
 
 @Component({
   selector: "my-app",
@@ -9,8 +10,16 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 
 export class AppComponent {
   name = "Angular";
+  @Input('sidenav') sidenav: MatSidenav;
 
-  toggleMenu(){
-    console.log('on click side menu');
+  public leftMenuItems: Array<LeftMenuItem>;
+
+  ngOnInit()
+  {
+    this.leftMenuItems = [
+      new LeftMenuItem('Apple'),
+      new LeftMenuItem('Banana'),
+      new LeftMenuItem('Cherry')
+    ]
   }
 }

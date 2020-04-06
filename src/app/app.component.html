@@ -1,12 +1,26 @@
-<mat-toolbar color="primary">
-  <mat-icon class="example-frontIcon" (click)="toggleMenu()">menu</mat-icon>
-  <span>PP-PIPE</span>
-  <span class="example-spacer"></span>
-  <mat-icon class="example-icon">favorite</mat-icon>
-  <mat-icon class="example-icon">delete</mat-icon>
-</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
 
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+    <div class="icon-text">
+      <mat-icon class="example-frontIcon" (click)="sidenav.toggle()">cancel</mat-icon> 
+      <span>PP-PIPE</span>
+    </div>
+
+    <mat-nav-list>
+        <a mat-list-item routerLink="." *ngFor="let items of leftMenuItems">{{items.name}}</a>
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-icon class="example-frontIcon" (click)="sidenav.toggle()">menu</mat-icon>
+      <span>PP-PIPE</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon">favorite</mat-icon>
+      <mat-icon class="example-icon">delete</mat-icon>
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

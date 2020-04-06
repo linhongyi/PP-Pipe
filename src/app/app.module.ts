@@ -11,4 +11,5 @@ import { DemoMaterialModule } from './material-module';
   declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+ }
