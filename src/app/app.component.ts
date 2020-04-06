@@ -6,6 +6,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
+
 export class AppComponent {
   name = "Angular";
+
+  toggleMenu(){
+    console.log('on click side menu');
+  }
 }
