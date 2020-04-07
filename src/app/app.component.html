@@ -9,17 +9,34 @@
     <mat-nav-list>
         <a mat-list-item routerLink="." *ngFor="let items of leftMenuItems">{{items.name}}</a>
     </mat-nav-list>
-
-
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <mat-icon class="example-frontIcon" (click)="sidenav.toggle()">menu</mat-icon>
       <span>PP-PIPE</span>
+
+      
+
       <span class="example-spacer"></span>
-      <mat-icon class="example-icon">favorite</mat-icon>
-      <mat-icon class="example-icon">delete</mat-icon>
+      
+      <mat-menu #appMenu1="matMenu">
+        <button mat-menu-item>Hello1</button>
+        <button mat-menu-item>Hello2</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu1">
+        <mat-icon class="example-icon">favorite</mat-icon>
+      </button>
+
+      <mat-menu #appMenu2="matMenu">
+        <button mat-menu-item (click)="onClickSettings()">Settings</button>
+        <button mat-menu-item>Help</button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu2">
+        <mat-icon class="example-icon">more_vert</mat-icon>
+      </button>
     </mat-toolbar>
   </mat-sidenav-content>
 

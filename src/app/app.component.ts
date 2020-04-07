@@ -22,4 +22,9 @@ export class AppComponent {
       new LeftMenuItem('Cherry')
     ]
   }
+
+  onClickSettings()
+  {
+    console.log('settings');
+  }
 }
