@@ -25,6 +25,6 @@ export class AppComponent {
 
   onClickSettings()
   {
-    console.log('settings');
+    window.alert('settings');
   }
 }
