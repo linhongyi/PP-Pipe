@@ -4,6 +4,7 @@
 
 .example-frontIcon {
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .example-spacer {
