@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardViewComponent } from '../card-view/card-view.component';
 
 export interface Tile {
   color: string;
@@ -10,15 +11,17 @@ export interface Tile {
 @Component({
   selector: 'app-grid-list',
   templateUrl: './grid-list.component.html',
-  styleUrls: ['./grid-list.component.css']
+  styleUrls: ['./grid-list.component.css'],
+  declarations: [ CardViewComponent ]
 })
+
 export class GridListComponent implements OnInit {
 
  tiles: Tile[] = [
-    {text: 'One', cols: 2, rows: 3, color: 'lightblue'},
-    {text: 'Two', cols: 2, rows: 3, color: 'lightgreen'},
-    {text: 'Three', cols: 2, rows: 3, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 3, color: '#DDBDF1'},
+    {text: 'One', cols: 2, rows: 6, color: 'lightblue'},
+    {text: 'Two', cols: 2, rows: 6, color: 'lightgreen'},
+    {text: 'Three', cols: 2, rows: 6, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 6, color: '#DDBDF1'},
   ];
 
   constructor() { }

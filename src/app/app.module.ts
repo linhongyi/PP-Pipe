@@ -8,10 +8,11 @@ import { DemoMaterialModule } from './material-module';
 import { GridListComponent } from './grid-list/grid-list.component';
 import { BottomTableComponent } from './bottom-table/bottom-table.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
+import { CardViewComponent } from './card-view/card-view.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, DemoMaterialModule],
-  declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent ],
+  declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
