@@ -14,6 +14,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
   { path: 'loginPage', component: LoginPageComponent },
   { path: 'IndexPage', component: IndexPageComponent }
 ];
