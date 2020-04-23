@@ -23,4 +23,14 @@ export class LoginPageComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
+  onClear()
+  {
+    window.alert('clear');
+  }
+
+  onLogin()
+  {
+    window.alert('login');
+  }
 }

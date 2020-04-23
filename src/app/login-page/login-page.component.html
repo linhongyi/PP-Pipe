@@ -9,15 +9,15 @@
 
   <mat-form-field appearance="fill">
     <mat-label>請輸入密碼</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput [type]="!hide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
   <br/>
 
   
-  <button mat-raised-button color="primary" style="margin-right:5px;">清除</button>
-  <button mat-raised-button color="primary" style="margin-right:5px;">登入</button>
+  <button mat-raised-button color="primary" style="margin-right:5px;" (click)=onClear()>清除</button>
+  <button mat-raised-button color="primary" style="margin-right:5px;" (click)=onLogin()>登入</button>
 
 </div>
