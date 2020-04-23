@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { DemoMaterialModule } from './material-module';
@@ -15,14 +14,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
-  { path: 'loginPage', component: LoginPageComponent },
+  { path: 'LoginPage', component: LoginPageComponent },
   { path: 'IndexPage', component: IndexPageComponent }
 ];
 
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, DemoMaterialModule,  RouterModule.forRoot(
+  imports:      [ BrowserModule, 
+  FormsModule,
+  ReactiveFormsModule,
+  DemoMaterialModule,  
+  RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )],

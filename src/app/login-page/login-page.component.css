@@ -1,0 +1,11 @@
+.example-container {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.mat-form-field {
+  width: 80%
+}
