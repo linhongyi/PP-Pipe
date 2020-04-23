@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -9,7 +9,13 @@ import { FormControl, Validators} from '@angular/forms';
 
 export class LoginPageComponent implements OnInit {
   
+  public loginModel: FormGroup = new FormGroup ({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl()});
+
   email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl();
+  
 
   constructor() { }
 
@@ -24,13 +30,32 @@ export class LoginPageComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+
+  getPasswordErrorMessage() {
+    if (this.password.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+  }
+
   onClear()
   {
-    window.alert('clear');
+    this.email.setValue(null);
+    this.password.setValue(null);
+    
+    this.email.markAsPristine();
+    this.email.markAsUntouched();
+    this.email.updateValueAndValidity();
+    
+    this.password.markAsPristine();
+    this.password.markAsUntouched();
+    this.password.updateValueAndValidity();
   }
 
   onLogin()
   {
-    window.alert('login');
+    var str = this.email.value +'\n'+this.password.value;
+
+    window.alert(str);
   }
 }
