@@ -28,4 +28,18 @@ export class AccountService {
 
     console.log(str);
   }
+
+  isLogin():Boolean
+  {
+    var uname = new String(this.loginModel.mail); 
+
+    if(uname.length>0)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

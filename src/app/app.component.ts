@@ -1,6 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { MatSidenav } from '@angular/material/sidenav';
 import { LeftMenuItem } from './LeftMenuItem';
+import { AccountService } from './account.service';
+
 
 @Component({
   selector: "my-app",
@@ -14,6 +16,8 @@ export class AppComponent {
 
   public leftMenuItems: Array<LeftMenuItem>;
 
+  constructor(public accountService:AccountService){};
+
   ngOnInit()
   {
     this.leftMenuItems = [
@@ -23,8 +27,21 @@ export class AppComponent {
     ]
   }
 
+  onLogout() 
+  {
+    this.accountService.reset();
+    this.accountService.dump();
+
+    window.alert('Log out');
+  }
+
   onClickSettings()
   {
     window.alert('settings');
+  }
+
+  isLogin():Boolean
+  {
+    return this.accountService.isLogin();
   }
 }

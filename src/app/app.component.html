@@ -30,7 +30,8 @@
 
       <mat-menu #appMenu2="matMenu">
         <button mat-menu-item (click)="onClickSettings()">Settings</button>
-        <button mat-menu-item routerLink="/LoginPage">Login</button>
+        <button mat-menu-item routerLink="/LoginPage" *ngIf="!isLogin()">Login</button>
+        <button mat-menu-item *ngIf="isLogin()" (click)="onLogout()">Logout ({{this.accountService.getLoginModel().mail}})</button>
       </mat-menu>
 
       <button mat-icon-button [matMenuTriggerFor]="appMenu2">
