@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,16 +10,12 @@ import { Router } from '@angular/router';
 })
 
 export class LoginPageComponent implements OnInit {
-  
-  // public loginModel: FormGroup = new FormGroup ({
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl()});
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl();
   
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private accountService:AccountService) { 
 
   }
 
@@ -54,10 +51,17 @@ export class LoginPageComponent implements OnInit {
     this.password.markAsPristine();
     this.password.markAsUntouched();
     this.password.updateValueAndValidity();
+
+    this.accountService.reset();
+    this.accountService.dump();
   }
 
   onLogin()
   {
+    var loginModel = this.accountService.getLoginModel();
+    loginModel.mail = this.email.value;
+    loginModel.password = this.password.value;
+
     var str = this.email.value +'\n'+this.password.value;
     this.router.navigate(['IndexPage']);
     

@@ -11,6 +11,7 @@ import { CardViewComponent } from './card-view/card-view.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountService } from './account.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )],
   declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [AccountService]
 })
 export class AppModule {
  }
