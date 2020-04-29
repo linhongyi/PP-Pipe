@@ -12,6 +12,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountService } from './account.service';
+import { HttpAPIService } from './http-api.service';
+import { HttpClientModule } from '@angular/common/http'
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
@@ -29,10 +31,12 @@ const appRoutes: Routes = [
   RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )],
+    ),
+    HttpClientModule],
+    
   declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AccountService]
+  providers: [AccountService, HttpAPIService]
 })
 export class AppModule {
  }

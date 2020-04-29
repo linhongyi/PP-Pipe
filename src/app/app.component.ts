@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { MatSidenav } from '@angular/material/sidenav';
 import { LeftMenuItem } from './LeftMenuItem';
 import { AccountService } from './account.service';
-
+import { HttpAPIService } from './http-api.service'
 
 @Component({
   selector: "my-app",
@@ -16,7 +16,10 @@ export class AppComponent {
 
   public leftMenuItems: Array<LeftMenuItem>;
 
-  constructor(public accountService:AccountService){};
+  constructor(public accountService:AccountService, public httpApi:HttpAPIService)
+  {
+
+  };
 
   ngOnInit()
   {
@@ -43,5 +46,14 @@ export class AppComponent {
   isLogin():Boolean
   {
     return this.accountService.isLogin();
+  }
+
+  onClickVersion()
+  {
+    this.httpApi.getVersion().subscribe((result:any)=>{
+
+      console.log(result);
+
+    });
   }
 }
