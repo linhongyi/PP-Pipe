@@ -10,7 +10,7 @@ import { AccountService } from '../account.service';
 })
 
 export class LoginPageComponent implements OnInit {
-
+  hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl();
   
