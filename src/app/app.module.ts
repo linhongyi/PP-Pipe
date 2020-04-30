@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountService } from './account.service';
 import { HttpAPIService } from './http-api.service';
 import { HttpClientModule } from '@angular/common/http'
+import {APP_BASE_HREF} from '@angular/common';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
     
   declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AccountService, HttpAPIService]
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AccountService, HttpAPIService]
 })
 export class AppModule {
  }

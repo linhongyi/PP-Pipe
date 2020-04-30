@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CardViewComponent } from '../card-view/card-view.component';
 
 export interface Tile {
   color: string;
@@ -12,7 +11,6 @@ export interface Tile {
   selector: 'app-grid-list',
   templateUrl: './grid-list.component.html',
   styleUrls: ['./grid-list.component.css'],
-  declarations: [ CardViewComponent ]
 })
 
 export class GridListComponent implements OnInit {
