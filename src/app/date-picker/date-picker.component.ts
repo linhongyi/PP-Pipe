@@ -10,12 +10,21 @@ import 'rxjs/add/operator/map';
 })
 export class DatePickerComponent implements OnInit {
   
-  isHandeset: Observable<boolean>;
+  isHandeset$: boolean;
   
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    this.isHandeset = this.breakpointObserver.observe(Breakpoints.Handset).map(match => match.matches);
+
+
+    this.breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
+  .subscribe(result => {
+
+    this.isHandeset$ = result.matches;
+
+    console.log(`Handset: ${result.matches}`);
+  });
+
   }
 
 }
