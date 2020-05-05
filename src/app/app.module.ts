@@ -40,7 +40,7 @@ const appRoutes: Routes = [
   declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent, DatePickerComponent ],
   bootstrap:    [ AppComponent ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }, AccountService, HttpAPIService],
-  Exports: [ LayoutModule ]
+  exports: [ LayoutModule ]
 })
 export class AppModule {
  }
