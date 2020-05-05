@@ -15,6 +15,8 @@ import { AccountService } from './account.service';
 import { HttpAPIService } from './http-api.service';
 import { HttpClientModule } from '@angular/common/http'
 import {APP_BASE_HREF} from '@angular/common';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/IndexPage', pathMatch: 'full'},
@@ -35,9 +37,10 @@ const appRoutes: Routes = [
     ),
     HttpClientModule],
     
-  declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent ],
+  declarations: [ AppComponent, HelloComponent, GridListComponent, BottomTableComponent, TabGroupComponent, CardViewComponent, LoginPageComponent, IndexPageComponent, DatePickerComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AccountService, HttpAPIService]
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }, AccountService, HttpAPIService],
+  Exports: [ LayoutModule ]
 })
 export class AppModule {
  }
