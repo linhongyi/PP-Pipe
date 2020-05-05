@@ -10,7 +10,8 @@ import 'rxjs/add/operator/map';
 })
 export class DatePickerComponent implements OnInit {
   
-  isHandeset$: boolean;
+  isHandeset$: Observable<boolean>;
+  
   
   constructor(private breakpointObserver: BreakpointObserver) { }
 
@@ -19,10 +20,10 @@ export class DatePickerComponent implements OnInit {
 
     this.breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
   .subscribe(result => {
-
-    this.isHandeset$ = result.matches;
-
     console.log(`Handset: ${result.matches}`);
+
+this.isHandeset$ = this.breakpointObserver.observe(Breakpoints.Handset).map(match => match.matches);
+    
   });
 
   }
