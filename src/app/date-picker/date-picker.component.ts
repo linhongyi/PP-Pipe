@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, BreakpointState, Breakpoints } from '@angular/cdk/layout';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-date-picker',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
-
-  constructor() { }
+  
+  isHandeset: Observable<boolean>;
+  
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
+    this.isHandeset = this.breakpointObserver.observe(Breakpoints.Handset).map(match => match.matches);
   }
 
 }
