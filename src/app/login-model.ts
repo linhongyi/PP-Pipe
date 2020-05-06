@@ -1,6 +1,6 @@
 export class LoginModel {
   
-  public mail:string;
-  public password:string;
+  public mail:String;
+  public password:String;
 
 }

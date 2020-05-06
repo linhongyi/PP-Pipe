@@ -8,6 +8,7 @@ export class AccountService {
 
   constructor() { 
     this.loginModel = new LoginModel();
+    this.reset();
   }
 
   getLoginModel() : LoginModel
@@ -31,15 +32,13 @@ export class AccountService {
 
   isLogin():Boolean
   {
-    var uname = new String(this.loginModel.mail); 
+     var result: boolean = false;
 
-    if(uname.length>0)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+     if(this.loginModel.mail.length>0)
+     {
+        result = true;  
+     }
+
+     return result;
   }
 }
