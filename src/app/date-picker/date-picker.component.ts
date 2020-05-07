@@ -16,16 +16,9 @@ export class DatePickerComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-
-
-    this.breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
-  .subscribe(result => {
-    console.log(`Handset: ${result.matches}`);
-
-this.isHandeset$ = this.breakpointObserver.observe(Breakpoints.Handset).map(match => match.matches);
     
-  });
-
+    this.isHandeset$ = this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge]).map(match => !match.matches);
+    
   }
 
 }

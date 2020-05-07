@@ -24,9 +24,9 @@ export class GridListComponent implements OnInit {
 
   ngOnInit() 
   {
-      this.breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait])
+      this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
       .subscribe(result => {
-        if(result.matches==true)
+        if(result.matches==false)
         {
            this.tiles = [
             {text: 'One', cols: this.cols, rows: 6, color: 'lightblue'},
