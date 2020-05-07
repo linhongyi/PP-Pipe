@@ -12,6 +12,8 @@ import { HttpAPIService } from './http-api.service'
 
 export class AppComponent {
   name = "Angular";
+  bidiMode = "ltr";
+
   @Input('sidenav') sidenav: MatSidenav;
 
   public leftMenuItems: Array<LeftMenuItem>;
