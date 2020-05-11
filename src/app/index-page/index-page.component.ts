@@ -5,9 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './index-page.component.html',
   styleUrls: ['./index-page.component.css']
 })
+
+
 export class IndexPageComponent implements OnInit {
 
   ngOnInit() {
+     
   }
 
 }

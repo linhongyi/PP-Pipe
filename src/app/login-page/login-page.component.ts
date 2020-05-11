@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from '../account.service';
+import { BreakpointObserver, BreakpointState, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-login-page',
@@ -14,13 +15,26 @@ export class LoginPageComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl();
   
-
-  constructor(private router: Router, private accountService:AccountService) { 
+  public styleCss:string = "redFont";
+  
+  constructor(private router: Router, private accountService:AccountService, private breakpointObserver: BreakpointObserver) { 
 
   }
 
   ngOnInit() {
-    
+
+     this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+      .subscribe(result => 
+      {
+         if(result.matches==true)
+         {
+           this.styleCss = "redFont";
+         }
+         else
+         {
+           this.styleCss = "greenFont"
+         }
+      });
   }
   
   getErrorMessage() {
