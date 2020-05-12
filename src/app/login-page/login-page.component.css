@@ -20,3 +20,13 @@
 {
   color: red;
 }
+
+.largeFont
+{
+  font-size: 30px;
+}
+
+.smallFont
+{
+  font-size: 10px;
+}

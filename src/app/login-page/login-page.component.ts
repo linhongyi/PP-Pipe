@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl();
   
-  public styleCss:string = "redFont";
+  public styleCss:Array<String> = ['redFont','largeFont'];
   
   constructor(private router: Router, private accountService:AccountService, private breakpointObserver: BreakpointObserver) { 
 
@@ -28,11 +28,11 @@ export class LoginPageComponent implements OnInit {
       {
          if(result.matches==true)
          {
-           this.styleCss = "redFont";
+           this.styleCss = ['redFont','largeFont'];
          }
          else
          {
-           this.styleCss = "greenFont"
+           this.styleCss = ['greenFont','smallFont'];
          }
       });
   }
